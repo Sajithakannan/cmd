@@ -1,3 +1,23 @@
+//writing docker
+mkdir dockerfilesample
+cd dockerfilesample
+echo > Dockerfile
+
+FROM nginx
+copy index.html /usr/share/nginx/html
+
+docker build -t dockerfilesample .
+docker run -p 8080:80 dockerfilesample
+
+//docker compose 
+mkdir html-cluster
+cd html-cluster
+echo > nginx.conf
+echo > docker-compose.yml
+
+docker-compose up -d
+docker ps
+
 //docker swarm
 docker swarm init --advertise-addr <IP_ADDRESS> --default-addr-pool 10.20.0.0/16
 docker service create --name webapp --replicas 3 -p 8080:80 nginx:1.17.6
