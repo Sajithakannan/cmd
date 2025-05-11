@@ -1,3 +1,4 @@
+//docker swarm
 docker swarm init --advertise-addr <IP_ADDRESS> --default-addr-pool 10.20.0.0/16
 docker service create --name webapp --replicas 3 -p 8080:80 nginx:1.17.6
 docker service scale webapp=5
@@ -6,3 +7,20 @@ docker service ls --filter name=webapp
 docker ps -a
 docker swarm leave --force
 docker system prune -a --volumes
+
+//kubernates
+kubectl config get-contexts
+kubectl config use-context docker-desktop
+
+//minicube
+kubectl version --client
+minikube version
+minikube start
+kubectl cluster-info
+kubectl create deployment nginx-deployment --image=nginx
+kubectl get all
+kubectl expose deployment nginx-deployment --port=80 --type=NodePort
+kubectl get service
+minikube service nginx-deployment
+
+
