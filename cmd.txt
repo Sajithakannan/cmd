@@ -8,6 +8,7 @@ copy index.html /usr/share/nginx/html
 
 docker build -t dockerfilesample .
 docker run -p 8080:80 dockerfilesample
+localhost:8080
 
 //docker compose 
 mkdir html-cluster
