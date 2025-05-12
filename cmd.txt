@@ -20,7 +20,7 @@ docker-compose up -d
 docker ps
 
 //docker swarm
-docker swarm init --advertise-addr <IP_ADDRESS> --default-addr-pool 10.20.0.0/16
+docker swarm init --default-addr-pool 10.20.0.0/16
 docker service create --name webapp --replicas 3 -p 8080:80 nginx:1.17.6
 docker service scale webapp=5
 docker service update --image nginx:1.19.8 webapp
